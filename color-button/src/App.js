@@ -10,7 +10,10 @@ function App() {
   return (
     <div>
       <button
-        style={{ backgroundColor: buttonColor, color: 'white' }}
+        style={{
+          backgroundColor: disabled ? 'gray' : buttonColor,
+          color: 'white',
+        }}
         onClick={() => setButtonColor(newButtonColor)}
         disabled={disabled}
       >
@@ -18,11 +21,12 @@ function App() {
       </button>
       <input
         type="checkbox"
-        id="enable-button-checkbox"
+        id="disable-button-checkbox"
         defaultChecked={disabled}
         aria-checked={disabled} // for accessability, for screen readers
         onChange={(e) => setDisabled(e.target.checked)}
       />
+      <label htmlFor="disable-button-checkbox">Disable button</label>
     </div>
   );
 }
